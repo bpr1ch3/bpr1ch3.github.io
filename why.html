@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>why</title>
+    <style>
+        @font-face {
+            font-family: 'More Perfect DOS VGA';
+            src: url('MorePerfectDOSVGA.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        body {
+            background-color: #000; /* Black background */
+            color: #D8D8D8; /* Light gray text color */
+            font-family: 'More Perfect DOS VGA', monospace; /* DOS-like font */
+            font-size: 16px; /* Adjust font size */
+            margin: 0;
+            padding: 0;
+            cursor: none; /* Hide default cursor */
+            overflow: hidden; /* Prevent scrollbars from appearing */
+            position: relative; /* Ensure body is positioned relative for absolute positioning of children */
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+        }
+        #message {
+            white-space: pre; /* Preserve whitespace and line breaks */
+            overflow-wrap: break-word;
+            position: absolute; /* Absolute position to place it over the background */
+            top: -20px; /* Position from the top of the screen */
+            left: -45px; /* Position from the left of the screen */
+            width: 100%; /* Full width of the viewport */
+            height: 100%; /* Full height of the viewport */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for text box */
+            padding: 10px; /* Add some padding for better visual */
+            box-sizing: border-box; /* Include padding in the width and height */
+            z-index: 2; /* Make sure the message is above the background */
+        }
+        #cursor {
+            display: inline-block;
+            width: 10px; /* Width of the cursor */
+            height: 0.1em; /* Height of the cursor */
+            background-color: #D8D8D8; /* Cursor color */
+            animation: blink 1s step-start infinite; /* Blinking animation */
+            margin-left: 2px; /* Space between text and cursor */
+            vertical-align: bottom; /* Align cursor with the bottom of the text */
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<audio id="audio">
+    <source src="sam.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+<div id="message">
+    <span id="text">...</span><span id="cursor"></span>
+</div>
+
+<script>
+    const textSegments = [
+        `hello...`,
+        `hello??`,
+        `is anyone here???`,
+        `i need help...`,
+        `i'm stuck in this forsaken place...`,
+        `with no escape...`,
+        `no one notices me...`,
+        `please, help me....`,
+        `i can't take this anymore.....`,
+        `AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!!`
+    ];
+
+    const textElement = document.getElementById('text');
+    const cursor = document.getElementById('cursor');
+    const audio = document.getElementById('audio');
+    let currentAudioSegment = 0; // To track which segment of the audio to play
+
+    // Array of start and end times for each audio segment [start, end]
+    const segments = [
+        [0.03, 1.0],   // First segment
+        [1.33, 2.5],   // Second segment
+        [2.52, 4.1],   // Third segment
+        [4.20, 6.0],   // Fourth segment
+        [7.1, 10.0],   // Fifth segment
+        [11.0, 13.0],  // Sixth segment
+        [13.5, 15.3],  // Seventh segment
+        [16.0, 18.0],  // Eighth segment
+        [19.0, 21.3],  // Ninth segment 
+        [25.1, 50.0]   // Tenth segment
+    ];
+
+    // Function to display the text sentence by sentence
+    function displayText() {
+        if (currentAudioSegment < textSegments.length) {
+            textElement.textContent = textSegments[currentAudioSegment]; // Update message for the current segment
+            currentAudioSegment++;
+        }
+    }
+
+    // Function to play audio based on the start and end times
+    function playAudioSegment() {
+        if (currentAudioSegment < segments.length) {
+            const startTime = segments[currentAudioSegment][0];
+            const endTime = segments[currentAudioSegment][1];
+            const playDuration = (endTime - startTime) * 1000; // Calculate duration in milliseconds
+
+            displayText(); // Update the text after the audio segment
+            audio.currentTime = startTime; // Set the current starting time
+            audio.play();
+
+            setTimeout(() => {
+                audio.pause();
+            }, playDuration); // Pause after the calculated play duration
+        }
+    }
+
+    // Event listener for the entire screen (body) to trigger both text and audio
+    document.body.addEventListener('click', function() {
+        playAudioSegment(); // Play the next segment of the audio and update text
+    });
+</script>
+
+</body>
+</html>
