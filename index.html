@@ -2,28 +2,66 @@
 <html>
 <head>
   <title>Dev Homepage Template</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .nav-bar {
+      background: linear-gradient(to right, darkblue, blue, darkblue);
+      padding: 10px;
+    }
+    .nav-bar a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .content {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <center>
-    <img src="/assets/toastedstuff.png" alt="Logo">
-    <table border="1" cellspacing="0" cellpadding="5">
-      <tr>
-        <td align="center">
-          <a href="#home">Home</a> |
-          <a href="#about">About</a> |
-          <a href="#contact">Contact</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h1>Welcome</h1>
-          <p>This is a very simple homepage template.</p>
-          <p>Update this section with your content.</p>
-        </td>
-      </tr>
-    </table>
-    <p>&copy; 1996 ToastedStuff Corporation</p>
-  </center>
+  <div class="content">
+    <center>
+      <img src="/assets/toastedstuff.png" alt="Logo">
+    </center>
+    <div class="nav-bar" align="center">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div id="home">
+      <h1>Welcome to the Dev Homepage</h1>
+      <p>This is a very simple homepage template built in the spirit of 1996 websites. No fancy CSS frameworks or JavaScript magic here—just plain HTML and a touch of style for clarity.</p>
+      <p>Use this page to list your projects, show your resume, or write about your ideas and work. Keep scrolling for more placeholder text and examples.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula sem vel metus congue, nec fringilla libero feugiat. Suspendisse potenti. Etiam eget libero vel velit lacinia mattis a at neque. Integer iaculis ipsum a nisi malesuada volutpat.</p>
+    </div>
+
+    <div id="about">
+      <h2>About</h2>
+      <p>This section is about you. Write who you are, what you do, and why you created this page. In the mid-90s, personal homepages were the norm and everyone had a bio section like this one.</p>
+    </div>
+
+    <div id="contact">
+      <h2>Contact</h2>
+      <p>You can reach me via email (just pretend there's an @ symbol and no spam protection) or write in my guestbook!</p>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 1996 ToastedStuff Corporation</p>
+    </div>
+  </div>
 </body>
 </html>
-
