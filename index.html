@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toast – Dev Homepage</title>
+  <title>Dev Homepage Template</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -13,31 +13,58 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggleButton = document.getElementById('dark-toggle');
+      const pages = document.querySelectorAll('.page');
+      const navLinks = document.querySelectorAll('[data-page]');
+
       toggleButton.addEventListener('click', () => {
         document.documentElement.classList.toggle('dark');
         toggleButton.textContent = document.documentElement.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
       });
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const target = link.getAttribute('data-page');
+          pages.forEach(p => p.classList.add('hidden'));
+          document.getElementById(target).classList.remove('hidden');
+        });
+      });
+
+      const headers = [
+        "ay, wsp?",
+        "toastedstuffing...",
+        "hi",
+        "aaa toasted",
+        "toasteiiy!",
+        "burnt toast"
+      ];
+      document.getElementById('random-header').textContent = headers[Math.floor(Math.random() * headers.length)];
     });
   </script>
   <link href="https://unpkg.com/lucide-static@0.270.0/icons.css" rel="stylesheet" />
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8 min-h-screen">
-  <header class="flex justify-between items-center mb-16">
-    <h1 class="text-4xl font-bold">Toast</h1>
-    <button id="dark-toggle" class="text-sm bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">
-      Light Mode
-    </button>
+  <header class="flex justify-between items-center mb-8">
+    <img src="/assets/toastedstuff.png" alt="Logo" class="h-12">
+    <nav class="space-x-4">
+      <button data-page="home" class="hover:underline">Home</button>
+      <button data-page="stack" class="hover:underline">Stack</button>
+      <button data-page="projects" class="hover:underline">Projects</button>
+      <button data-page="contact" class="hover:underline">Contact</button>
+      <button id="dark-toggle" class="ml-4 text-sm bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Light Mode</button>
+    </nav>
   </header>
 
-  <section class="mb-16">
-    <h2 class="text-3xl font-semibold mb-4">Hey, I'm Toast 👋</h2>
+  <!-- Home Page -->
+  <section id="home" class="page">
+    <h2 id="random-header" class="text-3xl font-semibold mb-4"></h2>
     <p class="text-lg max-w-xl">
       I’m a programmer focused on practical, efficient systems. I work across game modding, Linux customization, and decompilation.
       Currently building <span class="font-medium">Ubuntu Enlightenment</span> and reverse-engineering <span class="font-medium">Spore</span>.
     </p>
   </section>
 
-  <section class="mb-16">
+  <!-- Tech Stack Page -->
+  <section id="stack" class="page hidden">
     <h3 class="text-2xl font-semibold mb-4">Tech Stack</h3>
     <ul class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
       <li>🧠 C / C++</li>
@@ -49,7 +76,8 @@
     </ul>
   </section>
 
-  <section class="mb-16">
+  <!-- Projects Page -->
+  <section id="projects" class="page hidden">
     <h3 class="text-2xl font-semibold mb-4">Projects</h3>
     <ul class="space-y-4">
       <li><strong>The Ultimate Spore Decompilation</strong> – Rebuilding Spore from the ground up.</li>
@@ -58,16 +86,21 @@
     </ul>
   </section>
 
-  <footer class="mt-24 border-t pt-8 flex gap-4">
-    <a href="https://github.com/yourusername" target="_blank" class="hover:text-blue-400">
-      <i class="lucide lucide-github"></i>
-    </a>
-    <a href="mailto:you@example.com" class="hover:text-blue-400">
-      <i class="lucide lucide-mail"></i>
-    </a>
-    <a href="https://linkedin.com/in/yourusername" target="_blank" class="hover:text-blue-400">
-      <i class="lucide lucide-linkedin"></i>
-    </a>
-  </footer>
+  <!-- Contact Page -->
+  <section id="contact" class="page hidden">
+    <h3 class="text-2xl font-semibold mb-4">Contact</h3>
+    <p class="mb-2">Feel free to reach out via the following platforms:</p>
+    <div class="flex gap-4">
+      <a href="https://github.com/yourusername" target="_blank" class="hover:text-blue-400">
+        <i class="lucide lucide-github"></i>
+      </a>
+      <a href="mailto:you@example.com" class="hover:text-blue-400">
+        <i class="lucide lucide-mail"></i>
+      </a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" class="hover:text-blue-400">
+        <i class="lucide lucide-linkedin"></i>
+      </a>
+    </div>
+  </section>
 </body>
 </html>
