@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast – Dev Homepage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    };
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleButton = document.getElementById('dark-toggle');
+      toggleButton.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        toggleButton.textContent = document.documentElement.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+      });
+    });
+  </script>
+  <link href="https://unpkg.com/lucide-static@0.270.0/icons.css" rel="stylesheet" />
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8 min-h-screen">
+  <header class="flex justify-between items-center mb-16">
+    <h1 class="text-4xl font-bold">Toast</h1>
+    <button id="dark-toggle" class="text-sm bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">
+      Light Mode
+    </button>
+  </header>
+
+  <section class="mb-16">
+    <h2 class="text-3xl font-semibold mb-4">Hey, I'm Toast 👋</h2>
+    <p class="text-lg max-w-xl">
+      I’m a programmer focused on practical, efficient systems. I work across game modding, Linux customization, and decompilation.
+      Currently building <span class="font-medium">Ubuntu Enlightenment</span> and reverse-engineering <span class="font-medium">Spore</span>.
+    </p>
+  </section>
+
+  <section class="mb-16">
+    <h3 class="text-2xl font-semibold mb-4">Tech Stack</h3>
+    <ul class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+      <li>🧠 C / C++</li>
+      <li>🌐 React & Tailwind</li>
+      <li>⚙️ Assembly (x86 real/protected)</li>
+      <li>🐧 Ubuntu & ISO Customization</li>
+      <li>🎮 Roblox Lua / TweenService</li>
+      <li>🧩 Reverse Engineering</li>
+    </ul>
+  </section>
+
+  <section class="mb-16">
+    <h3 class="text-2xl font-semibold mb-4">Projects</h3>
+    <ul class="space-y-4">
+      <li><strong>The Ultimate Spore Decompilation</strong> – Rebuilding Spore from the ground up.</li>
+      <li><strong>Ubuntu Enlightenment</strong> – A fast, modern remix using the Enlightenment desktop.</li>
+      <li><strong>Packly (.pckl)</strong> – Custom archive installer format for modded projects.</li>
+    </ul>
+  </section>
+
+  <footer class="mt-24 border-t pt-8 flex gap-4">
+    <a href="https://github.com/yourusername" target="_blank" class="hover:text-blue-400">
+      <i class="lucide lucide-github"></i>
+    </a>
+    <a href="mailto:you@example.com" class="hover:text-blue-400">
+      <i class="lucide lucide-mail"></i>
+    </a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank" class="hover:text-blue-400">
+      <i class="lucide lucide-linkedin"></i>
+    </a>
+  </footer>
+</body>
+</html>
