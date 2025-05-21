@@ -1,56 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dev Homepage Template</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #c0c0c0;
+      color: black;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background: #000080;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav button {
+      background: #dcdcdc;
+      border: 2px outset #ffffff;
+      padding: 4px 8px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-left: 4px;
+    }
+    section {
+      display: none;
+      padding: 10px;
+      background: #ffffff;
+      border: 2px inset #aaaaaa;
+      margin-top: 10px;
+    }
+    section.active {
+      display: block;
+    }
+    img {
+      height: 50px;
+    }
+  </style>
   <script>
-    tailwind.config = { darkMode: 'class' };
-
     document.addEventListener('DOMContentLoaded', () => {
-      const toggleButton = document.getElementById('dark-toggle');
-      const pages = document.querySelectorAll('.page');
-      const navLinks = document.querySelectorAll('[data-page]');
+      const pages = document.querySelectorAll('section');
+      const navButtons = document.querySelectorAll('[data-page]');
 
-      toggleButton?.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        toggleButton.textContent = document.documentElement.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+      function showPage(id) {
+        pages.forEach(page => page.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+      }
+
+      navButtons.forEach(button => {
+        button.addEventListener('click', () => showPage(button.getAttribute('data-page')));
       });
 
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          const target = link.getAttribute('data-page');
-          pages.forEach(p => p.classList.add('hidden'));
-          document.getElementById(target).classList.remove('hidden');
-        });
-      });
+      showPage('home');
     });
   </script>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8 min-h-screen">
-  <header class="flex justify-between items-center mb-8">
-    <img src="/assets/toastedstuff.png" alt="Logo" class="h-12">
-    <nav class="space-x-4">
-      <button data-page="home" class="hover:underline">Home</button>
-      <button data-page="about" class="hover:underline">About</button>
-      <button data-page="contact" class="hover:underline">Contact</button>
-      <button id="dark-toggle" class="ml-4 text-sm bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Light Mode</button>
+<body>
+  <header>
+    <img src="/assets/toastedstuff.png" alt="Logo">
+    <nav>
+      <button data-page="home">Home</button>
+      <button data-page="about">About</button>
+      <button data-page="contact">Contact</button>
     </nav>
   </header>
 
-  <section id="home" class="page">
-    <h2 class="text-3xl font-semibold mb-4">Home</h2>
+  <section id="home">
+    <h2>Home</h2>
     <p>This is the home section. Add your own content here.</p>
   </section>
 
-  <section id="about" class="page hidden">
-    <h2 class="text-3xl font-semibold mb-4">About</h2>
+  <section id="about">
+    <h2>About</h2>
     <p>This is the about section. Describe yourself or your work.</p>
   </section>
 
-  <section id="contact" class="page hidden">
-    <h2 class="text-3xl font-semibold mb-4">Contact</h2>
+  <section id="contact">
+    <h2>Contact</h2>
     <p>This is the contact section. Provide ways to reach you.</p>
   </section>
 </body>
