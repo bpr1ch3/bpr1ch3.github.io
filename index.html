@@ -6,17 +6,14 @@
   <title>Dev Homepage Template</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      darkMode: 'class'
-    };
-  </script>
-  <script>
+    tailwind.config = { darkMode: 'class' };
+
     document.addEventListener('DOMContentLoaded', () => {
       const toggleButton = document.getElementById('dark-toggle');
       const pages = document.querySelectorAll('.page');
       const navLinks = document.querySelectorAll('[data-page]');
 
-      toggleButton.addEventListener('click', () => {
+      toggleButton?.addEventListener('click', () => {
         document.documentElement.classList.toggle('dark');
         toggleButton.textContent = document.documentElement.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
       });
@@ -28,79 +25,33 @@
           document.getElementById(target).classList.remove('hidden');
         });
       });
-
-      const headers = [
-        "ay, wsp?",
-        "toastedstuffing...",
-        "hi",
-        "aaa toasted",
-        "toasteiiy!",
-        "burnt toast"
-      ];
-      document.getElementById('random-header').textContent = headers[Math.floor(Math.random() * headers.length)];
     });
   </script>
-  <link href="https://unpkg.com/lucide-static@0.270.0/icons.css" rel="stylesheet" />
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8 min-h-screen">
   <header class="flex justify-between items-center mb-8">
     <img src="/assets/toastedstuff.png" alt="Logo" class="h-12">
     <nav class="space-x-4">
       <button data-page="home" class="hover:underline">Home</button>
-      <button data-page="stack" class="hover:underline">Stack</button>
-      <button data-page="projects" class="hover:underline">Projects</button>
+      <button data-page="about" class="hover:underline">About</button>
       <button data-page="contact" class="hover:underline">Contact</button>
       <button id="dark-toggle" class="ml-4 text-sm bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Light Mode</button>
     </nav>
   </header>
 
-  <!-- Home Page -->
   <section id="home" class="page">
-    <h2 id="random-header" class="text-3xl font-semibold mb-4"></h2>
-    <p class="text-lg max-w-xl">
-      I’m a programmer focused on practical, efficient systems. I work across game modding, Linux customization, and decompilation.
-      Currently building <span class="font-medium">Ubuntu Enlightenment</span> and reverse-engineering <span class="font-medium">Spore</span>.
-    </p>
+    <h2 class="text-3xl font-semibold mb-4">Home</h2>
+    <p>This is the home section. Add your own content here.</p>
   </section>
 
-  <!-- Tech Stack Page -->
-  <section id="stack" class="page hidden">
-    <h3 class="text-2xl font-semibold mb-4">Tech Stack</h3>
-    <ul class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
-      <li>🧠 C / C++</li>
-      <li>🌐 React & Tailwind</li>
-      <li>⚙️ Assembly (x86 real/protected)</li>
-      <li>🐧 Ubuntu & ISO Customization</li>
-      <li>🎮 Roblox Lua / TweenService</li>
-      <li>🧩 Reverse Engineering</li>
-    </ul>
+  <section id="about" class="page hidden">
+    <h2 class="text-3xl font-semibold mb-4">About</h2>
+    <p>This is the about section. Describe yourself or your work.</p>
   </section>
 
-  <!-- Projects Page -->
-  <section id="projects" class="page hidden">
-    <h3 class="text-2xl font-semibold mb-4">Projects</h3>
-    <ul class="space-y-4">
-      <li><strong>The Ultimate Spore Decompilation</strong> – Rebuilding Spore from the ground up.</li>
-      <li><strong>Ubuntu Enlightenment</strong> – A fast, modern remix using the Enlightenment desktop.</li>
-      <li><strong>Packly (.pckl)</strong> – Custom archive installer format for modded projects.</li>
-    </ul>
-  </section>
-
-  <!-- Contact Page -->
   <section id="contact" class="page hidden">
-    <h3 class="text-2xl font-semibold mb-4">Contact</h3>
-    <p class="mb-2">Feel free to reach out via the following platforms:</p>
-    <div class="flex gap-4">
-      <a href="https://github.com/yourusername" target="_blank" class="hover:text-blue-400">
-        <i class="lucide lucide-github"></i>
-      </a>
-      <a href="mailto:you@example.com" class="hover:text-blue-400">
-        <i class="lucide lucide-mail"></i>
-      </a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" class="hover:text-blue-400">
-        <i class="lucide lucide-linkedin"></i>
-      </a>
-    </div>
+    <h2 class="text-3xl font-semibold mb-4">Contact</h2>
+    <p>This is the contact section. Provide ways to reach you.</p>
   </section>
 </body>
 </html>
