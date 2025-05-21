@@ -2,31 +2,71 @@
 <html>
 <head>
   <title>Dev Homepage Template</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+    }
+    #container {
+      width: 600px;
+      margin: 0 auto;
+    }
+    img {
+      margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    nav {
+      margin-top: 10px;
+      border: 2px solid #000080;
+      background: linear-gradient(to right, #00004d 0%, #3366ff 50%, #00004d 100%);
+      padding: 8px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: normal;
+      font-size: medium; /* Let browser default font size */
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    #content {
+      margin-top: 20px;
+      border: 2px solid black;
+      padding: 15px;
+      text-align: left;
+      min-height: 400px;
+    }
+    footer {
+      margin-top: 20px;
+      font-size: small;
+    }
+  </style>
 </head>
 <body>
-  <center>
-    <img src="/assets/toastedstuff.png" alt="Logo" style="margin-bottom:10px;">
-    <table border="2" cellspacing="0" cellpadding="0" width="600" style="border-collapse: collapse;">
-      <tr>
-        <td width="20" bgcolor="#000080">&nbsp;</td>
-        <td bgcolor="#0000FF" align="center" style="padding: 8px;">
-          <a href="home.html" style="color: #0000EE; text-decoration: underline;">Home</a> |
-          <a href="about.html" style="color: #0000EE; text-decoration: underline;">About</a> |
-          <a href="contact.html" style="color: #0000EE; text-decoration: underline;">Contact</a>
-        </td>
-        <td width="20" bgcolor="#000080">&nbsp;</td>
-      </tr>
-      <tr>
-        <td colspan="3" bgcolor="#FFFFFF" style="border: 2px inset #ccc; padding: 15px;">
-          <h1>Welcome to the Dev Homepage</h1>
-          <p>This is a very simple homepage template built in the spirit of 1996 websites. No fancy CSS or JavaScript, just old-school HTML.</p>
-          <p>Use this page to list your projects, show your resume, or write about your ideas and work.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula sem vel metus congue, nec fringilla libero feugiat. Suspendisse potenti.</p>
-        </td>
-      </tr>
-    </table>
-    <p>&copy; 1996 ToastedStuff Corporation</p>
-  </center>
+  <div id="container">
+    <img src="/assets/toastedstuff.png" alt="Logo" width="200" height="auto">
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div id="content">
+      <h1>Welcome</h1>
+      <p>This is a very simple homepage template.</p>
+      <p>Update this section with your content.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum eu erat non volutpat. Curabitur convallis metus in orci lacinia, nec laoreet lacus rutrum. Integer sed lorem vel libero consectetur placerat. Duis dictum quam vel libero placerat, et pulvinar neque ultricies.</p>
+      <p>Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer cursus, ligula at laoreet malesuada, urna augue bibendum augue, ut condimentum turpis urna nec erat.</p>
+      <p>Vestibulum tincidunt, velit a posuere dignissim, odio lorem consequat nulla, vel faucibus magna nisl ut lectus.</p>
+    </div>
+    <footer>
+      &copy; 1996 ToastedStuff Corporation
+    </footer>
+  </div>
 </body>
 </html>
+
 
