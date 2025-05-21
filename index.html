@@ -1,88 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dev Homepage Template</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #c0c0c0;
-      color: black;
-      margin: 0;
-      padding: 20px;
-    }
-    header {
-      background: #000080;
-      color: white;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav button {
-      background: #dcdcdc;
-      border: 2px outset #ffffff;
-      padding: 4px 8px;
-      font-size: 14px;
-      cursor: pointer;
-      margin-left: 4px;
-    }
-    section {
-      display: none;
-      padding: 10px;
-      background: #ffffff;
-      border: 2px inset #aaaaaa;
-      margin-top: 10px;
-    }
-    section.active {
-      display: block;
-    }
-    img {
-      height: 50px;
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const pages = document.querySelectorAll('section');
-      const navButtons = document.querySelectorAll('[data-page]');
-
-      function showPage(id) {
-        pages.forEach(page => page.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-      }
-
-      navButtons.forEach(button => {
-        button.addEventListener('click', () => showPage(button.getAttribute('data-page')));
-      });
-
-      showPage('home');
-    });
-  </script>
 </head>
 <body>
-  <header>
-    <img src="/assets/toastedstuff.png" alt="Logo">
-    <nav>
-      <button data-page="home">Home</button>
-      <button data-page="about">About</button>
-      <button data-page="contact">Contact</button>
-    </nav>
-  </header>
-
-  <section id="home">
-    <h2>Home</h2>
-    <p>This is the home section. Add your own content here.</p>
-  </section>
-
-  <section id="about">
-    <h2>About</h2>
-    <p>This is the about section. Describe yourself or your work.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>This is the contact section. Provide ways to reach you.</p>
-  </section>
+  <table width="100%" border="1" cellspacing="0" cellpadding="5">
+    <tr>
+      <td colspan="2">
+        <img src="/assets/toastedstuff.png" alt="Logo">
+      </td>
+    </tr>
+    <tr>
+      <td width="150" valign="top">
+        <p><a href="#home">Home</a></p>
+        <p><a href="#about">About</a></p>
+        <p><a href="#contact">Contact</a></p>
+      </td>
+      <td valign="top">
+        <h1>Welcome</h1>
+        <p>This is a very simple homepage template.</p>
+        <p>Update this section with your content.</p>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
